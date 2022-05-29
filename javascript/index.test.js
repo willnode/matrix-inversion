@@ -2,7 +2,6 @@ import { determinant, invert } from './index.js'
 import test from 'ava';
 
 test('test determinant', (t) => {
-    
     t.is(determinant([[1, 2], [3, 4]]), -2);
     t.is(determinant([[-2, 7, -6], [-3, 12, -11], [3, -11, 10]]), -1);
 });

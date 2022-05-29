@@ -1,7 +1,7 @@
 {
   "name": "matrix-inversion",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.2.1",
+  "description": "General-Purpose Matrix Inversion Library",
   "main": "index.js",
   "exports": {
     ".": {
@@ -12,8 +12,12 @@
   "scripts": {
     "test": "ava"
   },
-  "keywords": [],
+  "keywords": ["matrix", "inversion", "linear-algebra"],
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willnode/matrix-inversion.git"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
