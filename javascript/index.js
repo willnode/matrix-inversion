@@ -3,7 +3,7 @@ function isValidMatrix(matrix) {
     if (!Array.isArray(matrix)) {
         return false;
     }
-    if (matrix.length < 2) {
+    if (matrix.length < 1) {
         return false;
     }
     let len = matrix.length;
@@ -24,7 +24,7 @@ function isValidMatrix(matrix) {
 }
 
 /**
- * 
+ *
  * @param {number} n
  * @param {number[][]} m
  * @param {number[]} x
@@ -48,20 +48,24 @@ function optimizedNDet(n, m, x, y, k) {
                 plus *= -1;
             }
             k[mk] = d;
-        } else {
+        } else if (n == 2) {
             let a = m[y[0]][x[0]];
             let b = m[y[0]][x[1]];
             let c = m[y[1]][x[0]];
             let d = m[y[1]][x[1]];
             k[mk] = a * d - b * c;
+        } else if (n == 1) {
+            k[mk] = m[y[0]][x[0]];
+        } else {
+            k[mk] = 1;
         }
-    } 
+    }
     return k[mk];
 }
 
 /**
  * Return determinant of given matrix
- * @param {number[][]} matrix 
+ * @param {number[][]} matrix
  * @returns {number}
  */
 export function determinant(matrix) {
@@ -77,7 +81,7 @@ export function determinant(matrix) {
 
 /**
  * Return inverted of given matrix
- * @param {number[][]} matrix 
+ * @param {number[][]} matrix
  * @returns {number[][]}
  */
 export function invert(matrix) {
@@ -98,12 +102,12 @@ export function invert(matrix) {
     for (let iy = 0; iy < n; iy++) {
         r.push([...Array(n)]);
         for (let ix = 0; ix < n; ix++) {
-            let plus = (ix + iy) % 2 === 0 ? 1 : -1; 
+            let plus = (ix + iy) % 2 === 0 ? 1 : -1;
             let xf = x.filter(e => e !== ix);
             let yf = y.filter(e => e !== iy);
-            let der = optimizedNDet(n - 1, matrix, yf, xf, k);  
+            let der = optimizedNDet(n - 1, matrix, yf, xf, k);
             r[iy][ix] = det * plus * der;
-        }        
-    }    
+        }
+    }
     return r;
 }

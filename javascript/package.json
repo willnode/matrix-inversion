@@ -1,6 +1,6 @@
 {
   "name": "matrix-inversion",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "General-Purpose Matrix Inversion Library",
   "main": "index.js",
   "exports": {
@@ -12,7 +12,11 @@
   "scripts": {
     "test": "ava"
   },
-  "keywords": ["matrix", "inversion", "linear-algebra"],
+  "keywords": [
+    "matrix",
+    "inversion",
+    "linear-algebra"
+  ],
   "type": "module",
   "repository": {
     "type": "git",
